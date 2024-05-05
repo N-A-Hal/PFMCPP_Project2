@@ -16,15 +16,13 @@ video: Chapter 2 - Part 3
  
  1) Write down the names of the 6 major primitive types available in C++  here:
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
+  int
+  float
+  bool
+  double
+  char
+  unsigned int
+  
 2) for each primitive type, write out 3 variable declarations inside the variableDeclaration() function on line 59.
     a) give each variable declaration an initial value
         - just ignore wchar_t. you do not need to declare 3 variables of type 'wchar_t'
@@ -64,10 +62,37 @@ void variableDeclarations()
 {
     //example:
     int number = 2; //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
+
+    int temperature = -20;
+    int ageDifference = -10;
+    int accountBalance = -1000;
+
+    float frequency = 130.8f;
+    float time = 0.5f;
+    float volume = -20.6f;
+
+    bool isPlaying = true;
+    bool hasKids = false;
+    bool verified = true;
+
+    double distance = 10.5;
+    double speed = 5.5;
+    double acceleration = -10.5;
+
+    char grade = 'A';
+    char currency = '$';
+    char letter = 'c';
+
+    unsigned int numDaysLeft = 13;
+    unsigned int numSemitones = 4;
+    unsigned int numDoors = 2;
     
 
     
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(number, temperature,ageDifference,accountBalance,
+        frequency, time, volume, isPlaying, hasKids, verified,
+        distance, speed, acceleration, grade, currency, letter,
+        numDaysLeft, numSemitones, numDoors); //passing each variable declared to the ignoreUnused() function
 }
 
 /*
@@ -84,43 +109,79 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
-
+void playSong(int songNumber, int volume = 5)
+{
+    ignoreUnused(songNumber, volume);
+}
 /*
  2)
  */
-
+float calculateFrequencyFromPitch(char musicalNote, int octave)
+{
+    ignoreUnused(musicalNote, octave);
+    return {};
+}
 /*
  3)
  */
-
+void moveForward(double distance, double speed = 5.5)
+{
+    ignoreUnused(distance, speed);
+}
 /*
  4)
  */
-
+unsigned int getAgeInYears(int birthYear, int currentYear)
+{
+    ignoreUnused(birthYear, currentYear);
+    return {};
+}
 /*
  5)
  */
-
+bool isTallEnough(int height)
+{
+    ignoreUnused(height);
+    return{};
+}
 /*
  6)
  */
-
+char adjustGradeForMissedClasses(char grade, int numMissedClasses = 0)
+{
+    ignoreUnused(grade, numMissedClasses);
+    return{};
+}
 /*
  7)
  */
-
+double calculateTotalMortagePayment(double loanAmount, double interestRate, int loanTermInMonths, double monthlyPayment = 2000.0)
+{
+    ignoreUnused(loanAmount, interestRate, loanTermInMonths, monthlyPayment);
+    return{};
+}
 /*
  8)
  */
-
+void printStudentInfo(int studentID)
+{
+    ignoreUnused(studentID);
+}
 /*
  9)
  */
-
+float calculateFailureProbability (int numSucceededTests, int numTotalTests)
+{
+    ignoreUnused(numSucceededTests, numTotalTests);
+    return {};
+}
 /*
  10)
  */
-
+bool isPlaying()
+{
+    return {};
+}
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
@@ -141,27 +202,27 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    
+    playSong(2, 3);
     //2)
-    
+    auto freq = calculateFrequencyFromPitch('C', 4);
     //3)
-    
+    moveForward(10);
     //4)
-    
+    auto age = getAgeInYears(1988, 2024);
     //5)
-    
+    auto tallEnough = isTallEnough(180);
     //6)
-    
+    auto newGrade = adjustGradeForMissedClasses('A', 6);
     //7)
-    
+    auto mortgage = calculateTotalMortagePayment(400000, 0.05, 120, 3000);
     //8)
-    
+    printStudentInfo(123456);
     //9)
-    
+    auto failureProbability = calculateFailureProbability(5, 10);
     //10)
+    auto musicOn = isPlaying();
     
-    
-    ignoreUnused(carRented);
+    ignoreUnused(carRented, freq, age, tallEnough, newGrade, mortgage, failureProbability, musicOn);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
